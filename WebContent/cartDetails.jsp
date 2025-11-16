@@ -84,7 +84,7 @@
 			<tbody
 				style="background-color: white; font-size: 15px; font-weight: bold;">
 
-
+			<!-- Method to add discounts, however it only applies one type (percentage) -->
 
 				<%
 				CartServiceImpl cart = new CartServiceImpl();
@@ -98,10 +98,17 @@
 					int prodQuantity = item.getQuantity();
 
 					ProductBean product = new ProductServiceImpl().getProductDetails(prodId);
-
+					
+					
 					double currAmount = product.getProdPrice() * prodQuantity;
-
+					
+					if (product.getProdType().equals("kitchen")) {
+						currAmount = (product.getProdPrice() - (product.getProdPrice() * 0.20)) * prodQuantity;					
+					}
+					
 					totAmount += currAmount;
+					
+
 
 					if (prodQuantity > 0) {
 				%>
