@@ -23,6 +23,9 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<fork>true</fork>
+					<!-- To prevent error about no compiler -->
+					<executable>${JAVA_HOME}\bin\javac.exe</executable>
 				</configuration>
 			</plugin>
 			<plugin>
